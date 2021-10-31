@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'main/lib/bootstrap-icons/bootstrap-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'main/lib/boxicons/css/boxicons.min.css' %}">
+    <!-- <link href="https://emoji-css.afeld.me/emoji.css" rel="stylesheet"> -->
+    <script src="{% static 'main/js/main.js' %}" defer></script>
+    <title>My Liz</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <h1>
+                Liz
+                <!-- <i class="em em-maple_leaf" aria-role="presentation" aria-label="MAPLE LEAF"></i> -->
+            </h1>
+        </div>
+        <div class="openMenu"><i id="bars" class="fa fa-bars"></i></div>
+        <ul class="mainMenu" id="menuLink">
+            <li><a class="active" href="#">Find Service</a></li>
+            <li><a href="#">Post Service</a></li>
+            <li><a id="login" href="#">Sign In</a></li>
+            <li><a href="#">About</a></li>
+            <div class="closeMenu"><i class="fa fa-times"></i></div>
+            <span class="icons">
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-twitter"></i>
+                <i class="bi bi-github"></i>
+            </span>
+        </ul>
+    </nav>
+    
+    <section>
+        <div class="search-container">
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder="Enter service name" name="service" required>
+                    <input type="text" placeholder="Enter loction" name="location" required>
+                    <button class="searchBTN" type="submit">Find service</button>
+                </form>
+            </div>
+        </div>
+        <div class="services-container">
+            <p>Services</p>
+            <div class="services">
+                {% block content %}
+                
+                {% endblock content %}
+            </div>
+            <div id="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active-pagination">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">6</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <ul>
+            <li>
+                <a href="http://">Terms and Conditions</a>
+            </li>
+            <li>
+                <a href="http://">Help Center</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="#">Liz &copy 2021 All Rights Reserved</a>
+            </li>
+            <li>
+                <a href="http://">Socials</a>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <a href="http://">Sign In</a>
+            </li>
+            <li>
+                <a style="color: red;" href="#">Delete Account</a>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    {% for service in services reversed %}
+
+        <div class="service">
+            <h1>{{ service.name }}</h1>
+            <address>{{ service.address }}</address>
+            <p>{{ service.experience|truncatewords:20 }}</p>
+            <p>{{ service.phone }}</p>
+            <p>{{ service.email }}</p>
+            <small>{{ service.datecreated }}</small>
+            <br><br><a href="/view_service/{{ service.id }}">Read more</a>
+            <a href="/update/{{ service.id }}">Update</a>
+            <a href="/delete/{{ service.id }}">Delete</a>
+        </div>
+
+    {% endfor %}
+{% endblock content %}
+    
+

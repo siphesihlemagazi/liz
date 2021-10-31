@@ -1,0 +1,48 @@
+<center>
+
+    <div style="width: 250px;">
+        Hello World
+
+        <div style="border: 1px solid gainsboro; margin: 10px;">
+            <p>Are you sure you want to delete "{{ service }}"?</p>
+
+            <form action="/delete/{{ service.id }}" method="POST">
+                {% csrf_token %}
+                <a href="/">Cancel</a>
+                <input type="submit" name="Confirm">
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</center>
