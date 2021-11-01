@@ -1,6 +1,64 @@
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+{% extends 'base.html' %}
 
-    <input type="submit" name="Create User">
-</form>
+{% block pageTITLE %}
+<h2>Create Your Account</h2>
+{% endblock pageTITLE %}
+
+{% block content %}
+<div class="userform">
+    {% for message in messages %}
+    <small class="user-form-error-message">{{ message }} </small>
+    {% endfor %}
+    
+    <form method="POST" action="register">
+        {% csrf_token %}
+        <div class="user-form-field">
+            <p>Username:</p>
+            <input type="text" name="username" placeholder="" required>
+        </div>
+        
+        <div class="user-form-field">
+            <p>Email:</p>
+            <input type="email" name="email" placeholder="" required>
+        </div>
+        
+        <div class="user-form-field">
+            <p>Password:</p>
+            <input type="password" name="password" placeholder="" required>
+        </div>
+        
+        <div class="user-form-field">
+            <p>Repeat Password:</p>
+            <input type="password" name="password2" placeholder="" required>
+        </div>
+    
+        <input class="user-login-btn" type="submit" name="Create User">
+    </form>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Irrelevant blocks -->
+{% block searchFORM %}
+{% endblock searchFORM %}
+{% block pagination %}
+{% endblock pagination %}
+
+
+

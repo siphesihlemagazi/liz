@@ -1,1 +1,52 @@
-Login
+{% extends 'base.html' %}
+
+{% block pageTITLE %}
+<h2>Login To Your Account</h2>
+{% endblock pageTITLE %}
+
+
+{% block content %}
+<div class="userform">
+    {% for message in messages %}
+    <small class="user-form-error-message">{{ message }} </small>
+    {% endfor %}
+    
+    <form method="POST" action="login">
+        {% csrf_token %}
+        <div class="user-form-field">
+            <p>Username:</p>
+            <input type="text" name="username" placeholder="" required>
+        </div>
+        
+        <div class="user-form-field">
+            <p>Password:</p>
+            <input type="password" name="password" placeholder="" required>
+        </div>
+    
+        <input class="user-login-btn" type="submit" name="login">
+    </form>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Irrelevant blocks -->
+{% block searchFORM %}
+{% endblock searchFORM %}
+{% block pagination %}
+{% endblock pagination %}

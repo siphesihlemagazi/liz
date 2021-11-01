@@ -18,7 +18,7 @@ nav {
     position: fixed;
     width: 100%;
     /* border-bottom: 1px solid red; */
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 }
 nav .mainMenu {
     display: flex;
