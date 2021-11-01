@@ -5,7 +5,7 @@
     justify-content: center;
     width: 100%;
     background-color: ghostwhite;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
     margin: 10px;
 }
@@ -34,12 +34,18 @@
     border: 2px solid #555;
 }
 .user-login-btn {
-    background-color: blue;
+    background-color: rgb(38, 38, 201);
     width: 100px;
     color: #fff;
     margin-top: 30px;
 }
+.user-login-btn:hover{
+    background-color: blue;
+}
 .user-form-error-message{
     color: red;
     margin-top: 30px;
+    /* font-style: italic; */
+    background-color: lightblue;
+    padding: 5px;
 }

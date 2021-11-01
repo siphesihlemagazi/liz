@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
+
 
 {% block pageTITLE %}
-<h2>Create Your Account</h2>
+    <h2>Create Your Account</h2>
 {% endblock pageTITLE %}
 
+
+
+
 {% block content %}
+
 <div class="userform">
     {% for message in messages %}
     <small class="user-form-error-message">{{ message }} </small>

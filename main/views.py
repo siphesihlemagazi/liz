@@ -83,6 +83,10 @@ def register(request):
                 messages.info(request, 'Username already taken')
                 return redirect('register')
 
+            elif len(password) < 7:
+                messages.info(request, 'Password too short')
+                return redirect('register')
+
             else:
                 user = User.objects.create_user(
                     username=username, email=email, password=password)
@@ -90,7 +94,7 @@ def register(request):
                 return redirect('login')
 
         else:
-            messages.info(request, 'Passwords do not match')
+            messages.info(request, 'Password do not match')
             return redirect('register')
 
     else:

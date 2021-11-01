@@ -149,7 +149,8 @@ form input{
 .services{
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
     justify-content: center;
 }
 .service{
