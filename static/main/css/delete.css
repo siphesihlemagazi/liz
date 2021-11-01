@@ -1,0 +1,39 @@
+.delete-service{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    height: 100%;
+    /* background-color:#f2f2f2; */
+    border: 1px solid #f2f2f2;
+    height: 200px;
+}
+.delete-service-form{
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.delete-service .delete-service-btn{
+    width: 100px;
+    background-color: red;
+    cursor: pointer;
+    color: #fff;
+}
+
+.delete-service .delete-cancel-service-btn{
+    background-color: blue;
+    color: #fff;
+    padding: 9px;
+    width: 100px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 15px;
+    border: 2px solid black;
+    margin: 10px;
+}

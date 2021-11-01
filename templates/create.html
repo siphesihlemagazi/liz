@@ -1,18 +1,21 @@
-<center>
+{% extends 'base.html' %}
 
-    <div style="width: fit-content;">
-        Hello World
+{% block pageTITLE %}
+<h2>Post Your Service</h2>
+{% endblock pageTITLE %}
 
-        <div style="border: 1px solid gainsboro; margin: 10px;">
-            <form method="post"  action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                
-                <input type="submit">
-            </form>
-        </div>
+{% block form %}
+
+    <div class="create-form">
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form }}
+        
+            <input class="create-btn" type="submit">
+        </form>
     </div>
 
+{% endblock form %}
 
 
 
@@ -36,12 +39,9 @@
 
 
 
-
-
-
-
-
-
-
-
-</center>
+<!-- Irrelevant blocks -->
+{% block searchFORM %}
+{% endblock searchFORM %}
+{% block pagination %}
+{% endblock pagination %}
+    

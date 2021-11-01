@@ -1,18 +1,21 @@
-<center>
+{% extends 'base.html' %}
 
-    <div style="width: 250px;">
-        Hello World
+
+
+{% block content %}
+    <div class="service">
         <a href="/">Home</a>
-        <div style="border: 1px solid gainsboro; margin: 10px;">
             <h1>{{ services.name }}</h1>
             <address>{{ services.address }}</address>
             <p>{{ services.experience }}</p>
             <p>{{ services.phone }}</p>
             <p>{{ services.email }}</p>
             <address>{{ services.datecreated }}</address>
-        </div>
-        <!-- <a href="/update/{{ services.id }}">Update</a> -->
+        <!-- <a href="/update/{{ services.id }}">Update</a>
+        <a href="/delete/{{ services.id }}">Delete</a> -->
     </div>
+{% endblock content %}
+    
 
 
 
@@ -30,19 +33,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</center>
+<!-- Irrelevant blocks -->
+{% block searchFORM %}
+{% endblock searchFORM %}
+{% block pagination %}
+{% endblock pagination %}

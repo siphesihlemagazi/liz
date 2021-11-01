@@ -1,18 +1,19 @@
-<center>
+{% extends 'base.html' %}
 
-    <div style="width: 250px;">
-        Hello World
 
-        <div style="border: 1px solid gainsboro; margin: 10px;">
-            <p>Are you sure you want to delete "{{ service }}"?</p>
-
-            <form action="/delete/{{ service.id }}" method="POST">
-                {% csrf_token %}
-                <a href="/">Cancel</a>
-                <input type="submit" name="Confirm">
-            </form>
-        </div>
+{% block content %}
+    <div class="delete-service">
+        <p>Are you sure you want to delete "{{ service }}"?</p>
+        
+        <form class="delete-service-form" action="/delete/{{ service.id }}" method="POST">
+            {% csrf_token %}
+            <a class="delete-cancel-service-btn" href="/">Cancel</a>
+            <input class="delete-service-btn" type="submit" name="Confirm">
+        </form>
     </div>
+{% endblock content %}
+    
+            
 
 
 
@@ -32,17 +33,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-</center>
+<!-- Irrelevant blocks -->
+{% block searchFORM %}
+{% endblock searchFORM %}
+{% block pagination %}
+{% endblock pagination %}

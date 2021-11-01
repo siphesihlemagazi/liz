@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/create.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/delete.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
         integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{% static 'main/lib/bootstrap-icons/bootstrap-icons.css' %}">
@@ -23,10 +25,10 @@
         </div>
         <div class="openMenu"><i id="bars" class="fa fa-bars"></i></div>
         <ul class="mainMenu" id="menuLink">
-            <li><a class="active" href="#">Find Service</a></li>
-            <li><a href="#">Post Service</a></li>
-            <li><a id="login" href="#">Sign In</a></li>
-            <li><a href="#">About</a></li>
+            <li><a class="active" href="/">Find Service</a></li>
+            <li><a href="/create">Post Service</a></li>
+            <li><a id="login" href="/login">Sign In</a></li>
+            <li><a href="/register">Create Account</a></li>
             <div class="closeMenu"><i class="fa fa-times"></i></div>
             <span class="icons">
                 <i class="bi bi-facebook"></i>
@@ -40,29 +42,43 @@
     <section>
         <div class="search-container">
             <div class="search">
-                <form action="#">
-                    <input type="text" placeholder="Enter service name" name="service" required>
-                    <input type="text" placeholder="Enter loction" name="location" required>
-                    <button class="searchBTN" type="submit">Find service</button>
-                </form>
+                {% block searchFORM %}
+                    <form action="#">
+                        <input type="text" placeholder="Enter service name" name="service" required>
+                        <input type="text" placeholder="Enter loction" name="location" required>
+                        <button class="searchBTN" type="submit">Find service</button>
+                    </form>
+                {% endblock searchFORM %}
             </div>
         </div>
         <div class="services-container">
-            <p>Services</p>
+                <div class="page-heading">
+                    {% block pageTITLE %}
+                        <h2>Services</h2>
+                    {% endblock pageTITLE %}
+                </div>
             <div class="services">
                 {% block content %}
                 
                 {% endblock content %}
             </div>
+
+            {% block form %}
+            
+            {% endblock form %}
+
             <div id="pagination">
-                <a href="#">&laquo;</a>
-                <a href="#" class="active-pagination">1</a>
-                <a href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
+                
+                {% block pagination %}
+                    <a href="#">&laquo;</a>
+                    <a href="#" class="active-pagination">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">&raquo;</a>
+                {% endblock pagination %}
             </div>
         </div>
     </section>

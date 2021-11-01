@@ -143,6 +143,9 @@ form input{
 .services-container p,h1,h3,address{
     margin: 10px;
 }
+.page-heading{
+    padding-bottom: 40px;
+}
 .services{
     display: flex;
     align-items: center;

@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Service
-from .forms import ServiceForm
+from .forms import ServiceForm, CreateUserForm
+from django.contrib.auth.forms import UserCreationForm
 
+
+# SERVICES
 
 def index(request):
     services = Service.objects.all()
@@ -50,9 +53,32 @@ def update(request, pk):
 def delete(request, pk):
     service = Service.objects.get(id=pk)
     if request.method == "POST":
-        service.delete() # if delete ever has a bug it that i have a function by its name
+        service.delete()  # if delete ever has a bug it that i have a function by its name
         return redirect('/')
     context = {
         'service': service
     }
     return render(request, 'delete.html', context)
+
+
+# USERS
+def register(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+        # return redirect('/')
+        
+    context = {
+        'form': form
+    }
+    return render(request, 'register.html', context)
+
+
+def login(request):
+    context = {
+
+    }
+    return render(request, 'login.html', context)
