@@ -8,7 +8,7 @@ from .models import Service
 class ServiceForm(ModelForm):
     class Meta:
         model = Service
-        fields = ['name', 'address', 'experience', 'phone', 'email']
+        fields = ['service_name', 'location', 'experience', 'phone', 'email']
 
         widgets = {
             'experience': Textarea,

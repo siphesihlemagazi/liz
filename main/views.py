@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from .models import Service
 from .forms import ServiceForm  # ,CreateUserForm
@@ -6,25 +7,39 @@ from .forms import ServiceForm  # ,CreateUserForm
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
+from .filters import ServiceFilter
+
+
+from django.contrib.auth.decorators import login_required
+
 
 # SERVICES
 
+@login_required(login_url='login')
 def index(request):
     services = Service.objects.all()
-    return render(request, 'index.html', {'services': services})
+
+    myFilter = ServiceFilter(request.GET, queryset = services)
+    services = myFilter.qs
+
+    return render(request, 'index.html', {'services': services, 'myFilter': myFilter})
 
 
+@login_required(login_url='login')
 def view_service(request, pk):
     services = Service.objects.get(id=pk)
     return render(request, 'view_service.html', {'services': services})
 
 
+@login_required(login_url='login')
 def create(request):
     form = ServiceForm()
 
     if request.method == "POST":
         form = ServiceForm(request.POST)
         if form.is_valid():
+            form = form.save(commit=False)
+            form.author = request.user
             form.save()
         return redirect('/')
 
@@ -35,6 +50,7 @@ def create(request):
     return render(request, 'create.html', context)
 
 
+@login_required(login_url='login')
 def update(request, pk):
 
     service = Service.objects.get(id=pk)
@@ -53,6 +69,7 @@ def update(request, pk):
     return render(request, 'create.html', context)
 
 
+@login_required(login_url='login')
 def delete(request, pk):
     service = Service.objects.get(id=pk)
     if request.method == "POST":
@@ -94,7 +111,7 @@ def register(request):
                 return redirect('login')
 
         else:
-            messages.info(request, 'Password do not match')
+            messages.info(request, "Password didn't match")
             return redirect('register')
 
     else:
@@ -118,6 +135,10 @@ def login(request):
     else:
         return render(request, 'login.html')
 
+
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
 
 # def register(request):
 #     form = CreateUserForm()

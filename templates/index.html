@@ -1,19 +1,29 @@
 {% extends 'base.html' %}
-    
 
+
+{% block searchFORM %}
+    <form action="">
+        {{ myFilter.form }}
+        
+        <button class="searchBTN" type="submit">Search</button>
+    </form>
+{% endblock searchFORM %}
+    
 {% block content %}
     {% for service in services reversed %}
 
         <div class="service">
-            <h1>{{ service.name }}</h1>
-            <address>{{ service.address }}</address>
+            <h1>{{ service.service_name }}</h1>
+            <address>{{ service.location }}</address>
             <p>{{ service.experience|truncatewords:20 }}</p>
-            <p>{{ service.phone }}</p>
-            <p>{{ service.email }}</p>
+            <p><strong>Call:</strong> {{ service.phone }}</p>
+            <p><strong>Email:</strong> {{ service.email }}</p>
             <small>{{ service.datecreated }}</small>
             <br><br><a href="/view_service/{{ service.id }}">Read more</a>
+            {% if user.is_authenticated and service.author.id == user.id %}
             <a href="/update/{{ service.id }}">Update</a>
             <a href="/delete/{{ service.id }}">Delete</a>
+            {% endif %}
         </div>
 
     {% endfor %}

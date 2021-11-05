@@ -5,12 +5,13 @@
 {% block content %}
     <div class="service">
         <a href="/">Home</a>
-            <h1>{{ services.name }}</h1>
+            <h1>{{ services.service_name }}</h1>
             <address>{{ services.address }}</address>
             <p>{{ services.experience }}</p>
             <p>{{ services.phone }}</p>
             <p>{{ services.email }}</p>
             <address>{{ services.datecreated }}</address>
+            <p>{{ services.author.id }}</p>
         <!-- <a href="/update/{{ services.id }}">Update</a>
         <a href="/delete/{{ services.id }}">Delete</a> -->
     </div>
