@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
 
-{% block pageTITLE %}
-<h2>Post Your Service</h2>
-{% endblock pageTITLE %}
-
-{% block form %}
+{% block content %}
 
     <div class="create-form">
+
+        <div class="create-title">
+            <h1>Post Your Service</h1>
+        </div>
+
         <form method="post" action="">
             {% csrf_token %}
             {{ form }}
-        
+    
             <input class="create-btn" type="submit">
         </form>
+
     </div>
 
-{% endblock form %}
+{% endblock content %}
 
 
 

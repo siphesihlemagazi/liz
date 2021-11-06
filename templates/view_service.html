@@ -3,17 +3,26 @@
 
 
 {% block content %}
-    <div class="service">
-        <a href="/">Home</a>
+    <div class="view-service-container">
+
+        <div class="view-service-title">
+            <h1>More details</h1>
+            <a href="/">Back</a>
+        </div>
+        
+        <div class="view-service">
+    
             <h1>{{ services.service_name }}</h1>
             <address>{{ services.address }}</address>
             <p>{{ services.experience }}</p>
-            <p>{{ services.phone }}</p>
-            <p>{{ services.email }}</p>
-            <address>{{ services.datecreated }}</address>
+            <p><strong>Call:</strong> {{ services.phone }}</p>
+            <p><strong>Email:</strong> {{ services.email }}</p>
+            <address><strong>Date posted: </strong>{{ services.datecreated }}</address>
             <p>{{ services.author.id }}</p>
-        <!-- <a href="/update/{{ services.id }}">Update</a>
-        <a href="/delete/{{ services.id }}">Delete</a> -->
+            <a href="/update/{{ services.id }}">Update</a>
+            <a href="/delete/{{ services.id }}">Delete</a>
+
+        </div>
     </div>
 {% endblock content %}
     

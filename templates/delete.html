@@ -2,6 +2,7 @@
 
 
 {% block content %}
+{% if user.is_authenticated and service.author.id == user.id %}
     <div class="delete-service">
         <p>Are you sure you want to delete "{{ service }}"?</p>
         
@@ -11,6 +12,9 @@
             <input class="delete-service-btn" type="submit" name="Confirm">
         </form>
     </div>
+{% else %}
+    <p>Return to homepage :(</p>
+{% endif %}
 {% endblock content %}
     
             

@@ -1,32 +1,58 @@
 {% extends 'base.html' %}
 
 
-{% block searchFORM %}
-    <form action="">
-        {{ myFilter.form }}
-        
-        <button class="searchBTN" type="submit">Search</button>
-    </form>
-{% endblock searchFORM %}
-    
 {% block content %}
-    {% for service in services reversed %}
 
-        <div class="service">
-            <h1>{{ service.service_name }}</h1>
-            <address>{{ service.location }}</address>
-            <p>{{ service.experience|truncatewords:20 }}</p>
-            <p><strong>Call:</strong> {{ service.phone }}</p>
-            <p><strong>Email:</strong> {{ service.email }}</p>
-            <small>{{ service.datecreated }}</small>
-            <br><br><a href="/view_service/{{ service.id }}">Read more</a>
-            {% if user.is_authenticated and service.author.id == user.id %}
-            <a href="/update/{{ service.id }}">Update</a>
-            <a href="/delete/{{ service.id }}">Delete</a>
-            {% endif %}
+    <div class="home-container">
+        
+        <h1 class="home-page-title">Service home</h1>
+
+        <div class="home-search">
+            <form action="">
+                {{ myFilter.form }}
+        
+                <button class="home-search-btn" type="submit">Search</button>
+            </form>
+        </div>
+        
+        <div class="home-service-container">
+        {% for service in services reversed %}
+            <div class="home-service">
+                <h1>{{ service.service_name }}</h1>
+                <address>{{ service.location }}</address>
+                <p>{{ service.experience|truncatewords:20 }}</p>
+                <p><strong>Call:</strong> {{ service.phone }}</p>
+                <p><strong>Email:</strong> {{ service.email }}</p>
+                <small>Date posted: {{ service.datecreated }}</small>
+                <br><a href="/view_service/{{ service.id }}">Read more</a>
+                {% if user.is_authenticated and service.author.id == user.id %}
+                <a href="/update/{{ service.id }}">Update</a>
+                <a href="/delete/{{ service.id }}">Delete</a>
+                {% endif %}
+            </div>
+        {% endfor %}
         </div>
 
-    {% endfor %}
+    </div>
+    
 {% endblock content %}
     
+        <!-- {{ service }} <br>
+        Has previous: {{ service.has_previous }} <br>
+        Has next: {{ service.has_next }} <br>
+        Current page {{ service.number }} <br>
+        Number of pages: {{ service.paginator.num_pages }} -->
+        <!-- {% if services.has_previous %}
+            <a href="?page=1">&laquo;</a>
+            <a href="?page={{ services.previous_page_number }}">Previous</a>
+        {% endif %}
 
+        Page {{ services.number }} of {{ services.paginator.num_pages }}
+
+        {% if service.has_next %}
+            <a href="?page={{ services.next_page_number }}">Next</a>
+            <a href="?page={{ services.paginator.num_pages }}">Last &raquo;</a>
+
+        {% endif %} -->
+
+    

@@ -1,8 +1,7 @@
 from django.db.models.query import QuerySet
 from django.shortcuts import render, redirect
 from .models import Service
-from .forms import ServiceForm  # ,CreateUserForm
-# from django.contrib.auth.forms import UserCreationForm
+from .forms import ServiceForm 
 
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -54,19 +53,23 @@ def create(request):
 def update(request, pk):
 
     service = Service.objects.get(id=pk)
-    form = ServiceForm(instance=service)
 
-    if request.method == "POST":
-        form = ServiceForm(request.POST, instance=service)
-        if form.is_valid():
-            form.save()
+    if request.user == service.author:
+        form = ServiceForm(instance=service)
+        
+        if request.method == "POST":
+            form = ServiceForm(request.POST, instance=service)
+            if form.is_valid():
+                form.save()
+            return redirect('/')
+
+        context = {
+            'form': form
+        }
+    
+        return render(request, 'create.html', context)
+    else:
         return redirect('/')
-
-    context = {
-        'form': form
-    }
-
-    return render(request, 'create.html', context)
 
 
 @login_required(login_url='login')
@@ -140,23 +143,4 @@ def logout(request):
     auth.logout(request)
     return redirect('login')
 
-# def register(request):
-#     form = CreateUserForm()
 
-#     if request.method == 'POST':
-#         form = CreateUserForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#         # return redirect('/')
-
-#     context = {
-#         'form': form
-#     }
-#     return render(request, 'register.html', context)
-
-
-# def login(request):
-#     context = {
-
-#     }
-#     return render(request, 'login.html', context)

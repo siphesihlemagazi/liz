@@ -88,120 +88,8 @@ section{
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
-    background-color: #fff;
-    /* background-color: #f2f2f2; */
+    /* background-color: blue; */
     width: 100%;
-    /* height: 100vh; */
-    /* padding-top: 100px; */
-}
-
-.search-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-height: 25%;
-    /* background-color: cadetblue; */
-}
-.search{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 10px;
-    margin-top: 50px;
-    padding: 10px;
-}
-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-evenly;
-}
-.search form{
-    border: 1px solid rgb(166, 166, 166);
-    padding: 10px;
-    background-color: rgb(242, 242, 242);
-}
-form input{
-    padding: 10px;
-    margin: 10px;
-    border-radius: 5px;
-    width: 100px;
-}
-.search label{
-    width: 100px;
-}
-.searchBTN{
-    background-color: blue;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    margin: 5px;
-}
-.services-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    min-height: 25%;
-    /* background-color: orchid; */
-    /* padding-top: 50px; */
-    padding: 10px;
-}
-.services-container p,h1,h3,address{
-    margin: 10px;
-}
-.page-heading{
-    padding-bottom: 40px;
-}
-.services{
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    border: 1px solid #d8d6d6;
-}
-.service{
-    margin: 10px;
-    /* background-color: red; */
-    max-width: 350px;
-    border-radius: 10px;
-    padding: 10px;
-    border: 1px solid #d8d6d6;
-    background-color: #d8d6d6;
-}
-.service ul{
-    list-style-type: circle;
-}
-.service ul,li{
-    margin-left: 15px;
-}
-.service small{
-    margin-left: 11px;
-}
-/* PAGINATION */
-#pagination{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    margin: 10px;
-    height: 100px;
-}
-#pagination a{
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #d8d6d6;
-    border-radius: 5px;
-}
-.active-pagination{
-    background-color: #000;
-    color: #fff;
 }
 
 
@@ -284,22 +172,6 @@ footer ul li a:hover{
     section{
         padding-top: 50px;
     }
-    /* SEARCH SECTION */
-    form{
-        flex-direction: column;
-        width: 100%;
-        margin: 10px;
-    }
-    .search{
-        margin-top: 0px;
-    }
-    form input{
-        width: 100%;
-    }
-    .searchBTN{
-        width: 100%;
-    }
-
     footer{
         flex-direction: column;
     }
