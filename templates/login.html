@@ -1,34 +1,44 @@
 {% extends 'base.html' %}
 
-{% block pageTITLE %}
-<h2>Login To Your Account</h2>
-{% endblock pageTITLE %}
-
 
 {% block content %}
-<div class="userform">
-    {% for message in messages %}
-    <small class="user-form-error-message">{{ message }} </small>
-    {% endfor %}
-    
-    <form method="POST" action="login">
-        {% csrf_token %}
-        <div class="user-form-field">
-            <p>Username:</p>
-            <input type="text" name="username" placeholder="" required>
-        </div>
-        
-        <div class="user-form-field">
-            <p>Password:</p>
-            <input type="password" name="password" placeholder="" required>
-        </div>
-    
-        <input class="user-login-btn" type="submit" name="login">
+<div class="register-container">
 
-        <a style="margin: 20px;" href="http://">Forgot password?</a>
-        <p>Don't have an account?<a style="margin: 10px;" href="/register">Sign Up.</a></p>
-    </form>
+    <div class="register-title">
+        <h1>Login</h1>
+    </div>
+
+    <div class="userform">
+        {% for message in messages %}
+        <small class="user-form-error-message">{{ message }} </small>
+        {% endfor %}
+    
+        <form method="POST" action="login">
+            {% csrf_token %}
+            <div class="user-form-field">
+                <p>Username:</p>
+                <input type="text" name="username" placeholder="" required>
+            </div>
+    
+            <div class="user-form-field">
+                <p>Password:</p>
+                <input type="password" name="password" placeholder="" required>
+            </div>
+    
+            <input class="user-login-btn" type="submit" name="login">
+    
+        </form>
+        <span class="forgot-password-links">
+            <a href="http://">Forgot password?
+            </a><br>
+            <p>
+                Don't have an account?
+                <a href="/register">Sign Up.</a>
+            </p>
+        </span>
+    </div>
 </div>
+
 {% endblock content %}
 
 

@@ -5,7 +5,10 @@
 
     <div class="home-container">
         
-        <h1 class="home-page-title">Service home</h1>
+        <div class="home-page-title">
+            <h1>Find Service</h1>
+            <p>Welcome {{ request.user }}!</p>
+        </div>
 
         <div class="home-search">
             <form action="">
@@ -18,17 +21,20 @@
         <div class="home-service-container">
         {% for service in services reversed %}
             <div class="home-service">
-                <h1>{{ service.service_name }}</h1>
-                <address>{{ service.location }}</address>
-                <p>{{ service.experience|truncatewords:20 }}</p>
-                <p><strong>Call:</strong> {{ service.phone }}</p>
-                <p><strong>Email:</strong> {{ service.email }}</p>
-                <small>Date posted: {{ service.datecreated }}</small>
-                <br><a href="/view_service/{{ service.id }}">Read more</a>
-                {% if user.is_authenticated and service.author.id == user.id %}
-                <a href="/update/{{ service.id }}">Update</a>
-                <a href="/delete/{{ service.id }}">Delete</a>
-                {% endif %}
+                <h1 id="service-contentc">{{ service.service_name }}</h1><br>
+                <address id="service-content">{{ service.location }}</address>
+                <p id="service-content">{{ service.experience|truncatewords:20 }}</p>
+                <p id="service-content"><strong>Call:</strong> {{ service.phone }}</p>
+                <p id="service-content"><strong>Email:</strong> {{ service.email }}</p>
+                <small id="service-content">Date posted: {{ service.datecreated }}</small>
+
+                <div class="service-btns">
+                        <a id="service-content" href="/view_service/{{ service.id }}">Read more</a>
+                    {% if user.is_authenticated and service.author.id == user.id %}
+                        <a id="service-content" href="/update/{{ service.id }}">Update</a>
+                        <a id="service-content" href="/delete/{{ service.id }}">Delete</a>
+                    {% endif %}
+                </div>
             </div>
         {% endfor %}
         </div>

@@ -1,39 +1,41 @@
-.delete-service{
+.delete-service-container{
+    margin: 20px;
+    height: 100vh;
+}
+.delete-service-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blue;
+    margin: 10px 0px 10px 0px;
+    padding: 10px;
+}
+.delete-service-container .delete-service{
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    justify-content: space-around;
-    height: 100%;
-    /* background-color:#f2f2f2; */
-    border: 1px solid #f2f2f2;
-    height: 200px;
-}
-.delete-service-form{
-    display: flex;
-    /* flex-direction: column; */
     align-items: center;
-    justify-content: center;
-    justify-content: space-around;
-    width: 90%;
+    padding: 10px;
+    height: 300px;
 }
-
-.delete-service .delete-service-btn{
-    width: 100px;
-    background-color: red;
-    cursor: pointer;
-    color: #fff;
-}
-
-.delete-service .delete-cancel-service-btn{
-    background-color: blue;
-    color: #fff;
-    padding: 9px;
-    width: 100px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    font-size: 15px;
-    border: 2px solid black;
+.service-delete-warning{
     margin: 10px;
+}
+.delete-service-btn{
+    padding: 6px;
+    background-color: darkred;
+    border: 1px solid black;
+    color: #fff;
+    margin: 10px;
+}
+.delete-cancel-service-btn{
+    text-decoration: none;
+    margin: 10px;
+    background-color: darkblue;
+    border: 1px solid black;
+    padding: 6px;
+    color: #fff;
+    font-size: small;
+    border-radius: 2px;
 }

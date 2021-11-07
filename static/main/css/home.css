@@ -1,92 +1,66 @@
 .home-container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    margin-bottom: 50px;
-    padding: 50px;
-    height: fit-content;
+    margin: 20px;
 }
-
-.home-container .home-search{
-    background-color: rgb(242, 242, 242);
-    width: 750px;
-    margin-bottom: 30px;
+.home-container .home-page-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: blue;
+    margin: 10px 0px 10px 0px;
     padding: 10px;
-    border: 1px solid rgb(197, 204, 218);
+}
+.home-container .home-search{
+    background-color: red;
+    padding: 10px;
+    margin: 10px 0px 20px 0px;
 }
 .home-container .home-search form{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    width: 100%;
 }
 .home-container .home-search form input{
-    width: 150px;
-    height: 35px;
-    border-radius: 0px;
-    margin: 10px;
-    border: 1px solid #ccc;
-}
-.home-container .home-search form input:focus{
-    outline: 2px solid black;
     padding: 5px;
+    margin: 10px;
 }
-.home-container .home-search form .home-search-btn{
-    height: 35px;
-    width: 80px;
-    color: #fff;
+.home-search-btn{
+    padding: 6px;
     background-color: cornflowerblue;
+    border: 1px solid black;
+    color: #fff;
 }
-.home-container .home-search form .home-search-btn:hover{
-    background-color: blue;
-}
-.home-page-title{
-    padding-bottom: 30px;
-}
-
-/* SERVICES */
 .home-service-container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     flex-wrap: wrap;
-    background-color: #fff;
-    width: 100%;
-    padding-top: 50px;
-    border: 1px solid rgb(197, 204, 218);
-    border-radius: 5px;
+    align-items: flex-start;
+    justify-content: center;
+    border: 1px solid blueviolet;
 }
-.home-service{
+.home-service-container .home-service{
     display: flex;
     flex-direction: column;
+    width: 290px;
+    margin: 10px;
     background-color: rgb(242, 242, 242);
-    margin: 20px;
-    width: 300px;
-    padding: 15px;
-    height: fit-content;
-    border-top: 5px solid cornflowerblue;
+    padding: 10px;
+    border-top: 4px solid cornflowerblue;
+    border-bottom: 1px solid rgb(51, 51, 51);
     border-radius: 5px;
-    border-bottom: 1px solid rgb(140, 140, 140);
 }
-.home-service h1, address, p, small, a{
+.home-service h1{
+    border-bottom: 1px solid rgb(230, 230, 230)
+}
+.home-service #service-content{
     margin-bottom: 8px;
 }
-
+.home-service-container .home-service address, small{
+    color: rgb(89, 89, 89);
+}
 
 /* MOBILE */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px){
     .home-container .home-search form{
         flex-direction: column;
-    }
-    .home-container .home-search{
-        width: 100%;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-    .home-container .home-search form input{
-        width: 300px;
     }
 }

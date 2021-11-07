@@ -3,9 +3,14 @@
 
 {% block content %}
 {% if user.is_authenticated and service.author.id == user.id %}
+    <div class="delete-service-container">
+        <div class="delete-service-title">
+            <h1>Delete Service</h1>
+        </div>
     <div class="delete-service">
-        <p>Are you sure you want to delete "{{ service }}"?</p>
-        
+
+        <p class="service-delete-warning">Are you sure you want to delete "{{ service }}"?</p>
+
         <form class="delete-service-form" action="/delete/{{ service.id }}" method="POST">
             {% csrf_token %}
             <a class="delete-cancel-service-btn" href="/">Cancel</a>
@@ -14,6 +19,7 @@
     </div>
 {% else %}
     <p>Return to homepage :(</p>
+    </div>
 {% endif %}
 {% endblock content %}
     
