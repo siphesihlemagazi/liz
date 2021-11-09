@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load main_extras %}
 
 {% block content %}
 
@@ -37,28 +37,42 @@
                 </div>
             </div>
         {% endfor %}
+
         </div>
-
     </div>
-    
-{% endblock content %}
-    
-        <!-- {{ service }} <br>
-        Has previous: {{ service.has_previous }} <br>
-        Has next: {{ service.has_next }} <br>
-        Current page {{ service.number }} <br>
-        Number of pages: {{ service.paginator.num_pages }} -->
-        <!-- {% if services.has_previous %}
-            <a href="?page=1">&laquo;</a>
-            <a href="?page={{ services.previous_page_number }}">Previous</a>
+
+    <div class="pagination">
+        {% if services.has_previous %}
+        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
+        <a href="{% my_url services.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
         {% endif %}
+        
+        <span>
+            Page {{ services.number }} of {{ services.paginator.num_pages }}
+        </span>
+        
+        {% if services.has_next %}
+        <a href="{% my_url services.next_page_number 'page' request.GET.urlencode %}">Next</a>
+        <a href="{% my_url services.paginator.num_pages 'page' request.GET.urlencode %}">Last &raquo;</a>
+        {% endif %}
+    </div>
+        
 
+{% endblock content %}
+
+
+
+<!-- {% if services.has_previous %}
+        <a href="?page=1">&laquo; First</a>
+        <a href="?page={{ services.previous_page_number }}">Previous</a>
+        {% endif %}
+        
         Page {{ services.number }} of {{ services.paginator.num_pages }}
-
-        {% if service.has_next %}
-            <a href="?page={{ services.next_page_number }}">Next</a>
-            <a href="?page={{ services.paginator.num_pages }}">Last &raquo;</a>
-
-        {% endif %} -->
+        
+        {% if services.has_next %}
+        <a href="?page={{ services.next_page_number }}">Next</a>
+        <a href="?page={{ services.paginator.num_pages }}">Last &raquo;</a> 
+        {% endif %}
+    -->
 
     

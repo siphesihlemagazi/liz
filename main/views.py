@@ -11,6 +11,8 @@ from .filters import ServiceFilter
 
 from django.contrib.auth.decorators import login_required
 
+# PAGINATION STUFF
+from django.core.paginator import Paginator
 
 # SERVICES
 
@@ -20,6 +22,10 @@ def index(request):
 
     myFilter = ServiceFilter(request.GET, queryset = services)
     services = myFilter.qs
+
+    p = Paginator(myFilter.qs, 2)
+    page = request.GET.get('page')
+    services = p.get_page(page)
 
     return render(request, 'index.html', {'services': services, 'myFilter': myFilter})
 
