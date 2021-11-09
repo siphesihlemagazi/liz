@@ -18,12 +18,12 @@ from django.core.paginator import Paginator
 
 @login_required(login_url='login')
 def index(request):
-    services = Service.objects.all()
+    services = Service.objects.all().order_by('-datecreated')
 
     myFilter = ServiceFilter(request.GET, queryset = services)
     services = myFilter.qs
 
-    p = Paginator(myFilter.qs, 2)
+    p = Paginator(myFilter.qs, 3)
     page = request.GET.get('page')
     services = p.get_page(page)
 

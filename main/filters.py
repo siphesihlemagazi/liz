@@ -9,5 +9,6 @@ class ServiceFilter(django_filters.FilterSet):
     class Meta:
         model = Service
         fields = '__all__'
-        exclude = ['experience', 'phone', 'email', 'datecreated', 'author'] 
-        # meaning only name & address will be used
+        exclude = ['experience', 'phone', 'email', 'datecreated', 'author']
+
+        # meaning only name & address will be used for searching

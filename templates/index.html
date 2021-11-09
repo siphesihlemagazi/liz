@@ -19,7 +19,7 @@
         </div>
         
         <div class="home-service-container">
-        {% for service in services reversed %}
+        {% for service in services %}
             <div class="home-service">
                 <h1 id="service-contentc">{{ service.service_name }}</h1><br>
                 <address id="service-content">{{ service.location }}</address>
@@ -39,22 +39,22 @@
         {% endfor %}
 
         </div>
-    </div>
 
-    <div class="pagination">
-        {% if services.has_previous %}
-        <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
-        <a href="{% my_url services.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
-        {% endif %}
+        <div class="pagination">
+            {% if services.has_previous %}
+            <a href="{% my_url 1 'page' request.GET.urlencode %}">&laquo; First</a>
+            <a href="{% my_url services.previous_page_number 'page' request.GET.urlencode %}">Previous</a>
+            {% endif %}
         
-        <span>
-            Page {{ services.number }} of {{ services.paginator.num_pages }}
-        </span>
+            <span>
+                Page {{ services.number }} of {{ services.paginator.num_pages }}
+            </span>
         
-        {% if services.has_next %}
-        <a href="{% my_url services.next_page_number 'page' request.GET.urlencode %}">Next</a>
-        <a href="{% my_url services.paginator.num_pages 'page' request.GET.urlencode %}">Last &raquo;</a>
-        {% endif %}
+            {% if services.has_next %}
+            <a href="{% my_url services.next_page_number 'page' request.GET.urlencode %}">Next</a>
+            <a href="{% my_url services.paginator.num_pages 'page' request.GET.urlencode %}">Last &raquo;</a>
+            {% endif %}
+        </div>
     </div>
         
 

@@ -20,10 +20,12 @@
             <address id="view-service-content"><strong>Date posted: </strong>{{ services.datecreated }}</address>
             <p id="view-service-content">Author: {{ services.author.id }}</p>
 
+            {% if user.is_authenticated and services.author.id == user.id %}
             <div class="view-service-btns">
                 <a id="view-service-content" href="/update/{{ services.id }}">Update</a>
                 <a id="view-service-content" href="/delete/{{ services.id }}">Delete</a>
             </div>
+            {% endif %}
 
         </div>
     </div>

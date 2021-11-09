@@ -1,5 +1,6 @@
 .view-service-container{
     margin: 20px;
+    height: 100vh;
 }
 .view-service-container .view-service-title{
     display: flex;
