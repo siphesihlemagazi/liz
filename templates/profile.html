@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/users.css' %}">
+{% endblock links %}
+
+{% block content %}
+
+<div class="register-container">
+
+    <div class="register-title">
+        <h1>Update Your Account</h1>
+        <a href="/login">Go back to login</a>
+    </div>
+
+    <div class="userform">
+
+        <small class="user-form-error-message">{{ form.errors }} </small>
+
+        {% for message in messages %}
+        <small class="user-form-error-message">{{ message }} </small>
+        {% endfor %}
+
+        <form class="userform" id="createForm" method="post" action="">
+
+            {% csrf_token %}
+
+            {{ form.username.label }}
+            {{ form.username }} <br><br>
+
+            {{ form.email.label }}
+            {{ form.email }} <br><br>
+
+            {{ form.password1.label }}
+            {{ form.password1 }} <br><br>
+
+            {{ form.password2.label }}
+            {{ form.password2 }}<br>
+
+            <input class="create-btn" type="submit">
+        </form>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Irrelevant blocks -->
+{% block searchFORM %}
+{% endblock searchFORM %}
+{% block pagination %}
+{% endblock pagination %}

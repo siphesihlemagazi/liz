@@ -1,42 +1,66 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/users.css' %}">
+{% endblock links %}
 
 {% block content %}
 
 <div class="register-container">
     
     <div class="register-title">
-        <h1>Create an Account</h1>
+        {% if user.is_authenticated %}
+            <h1>Update Your Account</h1>
+        {% else %}
+            <h1>Create an Account</h1>
+        {% endif %}
+        
         <a href="/login">Go back to login</a>
     </div>
 
     <div class="userform">
+    
+        <small>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <span>{{field.label}}: {{ error|escape }}</span>
+                    {% endfor %}
+                {% endfor %}
+            {% endif %}
+        </small>
+
         {% for message in messages %}
         <small class="user-form-error-message">{{ message }} </small>
         {% endfor %}
+        
     
-        <form method="POST" action="register">
+        <form id="createForm" method="post" action="">
+
             {% csrf_token %}
+
             <div class="user-form-field">
-                <p>Username:</p>
-                <input type="text" name="username" placeholder="" required>
+                <p>{{ form.username.label }}</p>
+                {{ form.username }}
             </div>
-    
+            
             <div class="user-form-field">
-                <p>Email:</p>
-                <input type="email" name="email" placeholder="" required>
+                <p>{{ form.email.label }}</p>
+                {{ form.email }}
             </div>
-    
+
             <div class="user-form-field">
-                <p>Password:</p>
-                <input type="password" name="password" placeholder="" required>
+                <p>{{ form.password1.label }}</p>
+                {{ form.password1 }}
             </div>
-    
+
             <div class="user-form-field">
-                <p>Repeat Password:</p>
-                <input type="password" name="password2" placeholder="" required>
+                <p>{{ form.password2.label }}</p>
+                {{ form.password2 }}
             </div>
-    
-            <input class="user-login-btn" type="submit" name="Create User">
+        
+            <input class="user-login-btn" type="submit">
         </form>
     </div>
 </div>

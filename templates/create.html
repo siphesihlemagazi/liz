@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'main/css/create.css' %}">
+<script src="{% static 'main/js/create.js' %}" defer></script>
+{% endblock links %}
 
 {% block content %}
 
@@ -9,7 +15,7 @@
             <a href="/">Back</a>
         </div>
 
-        <form method="post" action="">
+        <form id="createForm" method="post" action="">
             {% csrf_token %}
             {{ form }}
     

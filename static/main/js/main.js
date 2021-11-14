@@ -17,3 +17,6 @@ function close(){
     openMenu.style.display = 'flex';
     closeMenu.style.display = 'none';
 }
+
+
+

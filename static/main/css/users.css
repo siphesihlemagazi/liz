@@ -41,8 +41,16 @@
     border: 1px solid black;
 }
 .userform small{
+    display: flex;
+    flex-direction: column;
     color: darkred;
     margin: 10px;
+}
+.errorlist{
+    list-style: none;
+}
+.errorlist li{
+    margin: 5px;
 }
 .forgot-password-links{
     font-size: small;

@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 {% load main_extras %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+    <script src="{% static 'main/js/filterform.js' %}" defer></script>
+{% endblock links %}
+    
 
 {% block content %}
 
@@ -7,11 +14,11 @@
         
         <div class="home-page-title">
             <h1>Find Service</h1>
-            <p>Welcome {{ request.user }}!</p>
+            <a href="/profile">Welcome {{ request.user }}!</a>
         </div>
 
         <div class="home-search">
-            <form action="">
+            <form id="filterForm" action="">
                 {{ myFilter.form }}
         
                 <button class="home-search-btn" type="submit">Search</button>
@@ -59,20 +66,5 @@
         
 
 {% endblock content %}
-
-
-
-<!-- {% if services.has_previous %}
-        <a href="?page=1">&laquo; First</a>
-        <a href="?page={{ services.previous_page_number }}">Previous</a>
-        {% endif %}
-        
-        Page {{ services.number }} of {{ services.paginator.num_pages }}
-        
-        {% if services.has_next %}
-        <a href="?page={{ services.next_page_number }}">Next</a>
-        <a href="?page={{ services.paginator.num_pages }}">Last &raquo;</a> 
-        {% endif %}
-    -->
 
     
