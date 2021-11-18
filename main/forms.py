@@ -24,7 +24,8 @@ class CreateUserForm(UserCreationForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         try:
-            match = User.objects.get(email=email)
+            match = User.objects.exclude(pk=self.instance.pk).get(email=email)
+
         except User.DoesNotExist:
             return email
         raise forms.ValidationError('This email address is already in use.')

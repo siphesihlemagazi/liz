@@ -18,27 +18,46 @@
     background-color: darkgrey;
     padding: 10px;
 }
-
+#createform{
+    background-color: darkred;
+}
+form{
+    width: fit-content;
+    /* background-color: darkblue; */
+    width: 300px;
+}
 .user-form-field{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    /* align-items: center; */
     justify-content: space-between;
     margin: 10px;
 }
 .user-form-field input{
     padding: 10px;
+    /* width: 100%; */
 }
 .user-form-field p{
-    margin: 10px;
+    /* margin: 10px; */
 }
 .user-login-btn{
     padding: 10px;
-    float: right;
-    margin: 10px;
+    /* float: right; */
+    /* margin: 10px; */
+    margin-top: 10px;
     background-color: cornflowerblue;
     color: #fff;
     border: 1px solid black;
+    width: 100%;
+}
+#password{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#password a{
+    font-size: 13px;
 }
 .userform small{
     display: flex;
