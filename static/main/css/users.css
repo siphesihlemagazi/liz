@@ -75,3 +75,12 @@ form{
     font-size: small;
     padding: 10px;
 }
+
+
+/* PASSWORD RESET */
+.userform-password-reset-header{
+    margin: 10px;
+}
+.userform-password-reset-content{
+    margin: 10px;
+}

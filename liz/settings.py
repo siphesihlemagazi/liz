@@ -111,6 +111,20 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
+
+# Email Settings
+EMAIL_BECKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAILPORT = 578
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'mylizdev@gmail.com'
+EMAIL_HOST_PASSWORD = 'EarThDC137mr'
+
+# EMAIL_HOST_USER = os.environ.get('candidateformEMAIL')
+# EMAIL_HOST_PASSWORD = os.environ.get('candidateformPASSWORD')
+
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

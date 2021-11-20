@@ -129,7 +129,7 @@ def login(request):
                 auth.login(request, user)
                 return redirect('/')
             else:
-                messages.info(request, 'Invalid login credentials')
+                messages.info(request, 'Invalid login details')
                 return redirect('login')
         else:
             return render(request, 'login.html')
