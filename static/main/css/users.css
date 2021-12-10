@@ -83,4 +83,9 @@ form{
 }
 .userform-password-reset-content{
     margin: 10px;
+    padding: 10px;
+    color: rgb(102, 95, 95);
+    background-color: lightgreen;
+    font-size: small;
+    width: 260px;
 }

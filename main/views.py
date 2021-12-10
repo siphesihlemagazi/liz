@@ -24,7 +24,7 @@ def index(request):
     myFilter = ServiceFilter(request.GET, queryset=services)
     services = myFilter.qs
 
-    p = Paginator(myFilter.qs, 3)
+    p = Paginator(myFilter.qs, 6)
     page = request.GET.get('page')
     services = p.get_page(page)
 

@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-_zm=p6=*#1l&e17vd*ji$ho5@@s*ajb$e(di+zg$(p0ltb9=@^'
+SECRET_KEY = os.environ.get('lizsecuritykey')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -117,8 +117,8 @@ EMAIL_BECKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAILPORT = 578
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'mylizdev@gmail.com'
-EMAIL_HOST_PASSWORD = 'EarThDC137mr'
+EMAIL_HOST_USER = os.environ.get('lizemail') 
+EMAIL_HOST_PASSWORD = os.environ.get('lizpassword')
 
 # EMAIL_HOST_USER = os.environ.get('candidateformEMAIL')
 # EMAIL_HOST_PASSWORD = os.environ.get('candidateformPASSWORD')

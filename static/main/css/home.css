@@ -22,6 +22,7 @@
 .home-container .home-search form{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -31,6 +32,9 @@
     width: 200px;
     height: 20px;
 }
+/* .home-container .home-search form label{
+    font-family: FontAwesome, "Open Sans", Verdana, sans-serif;
+} */
 .home-search-btn{
     padding: 8px;
     background-color: cornflowerblue;
